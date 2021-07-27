@@ -11,8 +11,6 @@ public class Monster : MonoBehaviour
 
     void Awake() {
         myBody = GetComponent<Rigidbody2D>();
-
-        speed = 7;
     }
 
     // Start is called before the first frame update
