@@ -7,6 +7,8 @@ public class CameraMovement : MonoBehaviour {
     [SerializeField]
     private Transform player;
     private Vector3 tempPos;
+    public float height;
+    public float distance;
 
     
 
@@ -16,8 +18,8 @@ public class CameraMovement : MonoBehaviour {
             
         tempPos = transform.position;
         tempPos.x = player.position.x;
-        tempPos.y = player.position.y+3.5f;
-        tempPos.z = player.position.z-15f;
+        tempPos.y = player.position.y+height;
+        tempPos.z = player.position.z-distance;
 
         transform.position = tempPos;
     }

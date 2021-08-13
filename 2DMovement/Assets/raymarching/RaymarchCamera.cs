@@ -111,6 +111,7 @@ public class RaymarchCamera : SceneViewFilter
                 position = s.Position,
                 scale = s.Scale, 
                 colour = s.colour,
+                rotation = s.Rotation,
                 shapeType = (int) s.shapeType,
                 operation = (int) s.operation,
                 blendStrength = s.blendStrength*3,
@@ -132,6 +133,7 @@ public class RaymarchCamera : SceneViewFilter
         public Vector3 position;
         public Vector3 scale;
         public Vector4 colour;
+        public Vector3 rotation;
         public int shapeType;
         public int operation;
         public float blendStrength;
@@ -139,7 +141,7 @@ public class RaymarchCamera : SceneViewFilter
         // public Texture2D texture;
 
         public static int GetSize () {
-            return sizeof (float) * 12 + sizeof (int) * 2 ;
+            return sizeof (float) * 15 + sizeof (int) * 2 ;
         }
     }
 

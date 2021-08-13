@@ -5,6 +5,7 @@ struct Shape {
 		float3 position;
 		float3 scale;
 		float4 colour;
+    float3 rotation;
 		int shapeType;
 		int operation;
 		float blendStrength;
@@ -16,6 +17,52 @@ struct DistanceInfo {
 	fixed4 colour;
 	float distance;
 };
+
+// rotations
+
+// rotation about x axis
+float3x3 roll(float a){
+  float s = sin(a);
+  float c = cos(a);
+
+  float3x3 r = {
+    1.,0.,0.,
+    0.,c,-s,
+    0.,s,c,
+  };
+  return r;
+}
+
+// rotation about y axis
+float3x3 pitch(float a){
+  float s = sin(a);
+  float c = cos(a);
+
+  float3x3 r = {
+    c,0.,s,
+    0.,1.,0.,
+    -s,0.,c,
+  };
+  return r;
+}
+
+// rotation about z axis
+float3x3 yaw(float a){
+  float s = sin(a);
+  float c = cos(a);
+
+  float3x3 r = {
+    c,-s,0.,
+    s,c,0.,
+    0.,0.,1.,
+  };
+  return r;
+}
+
+float3 rotate(float3 a, float3 vec){
+  return mul(mul(mul(yaw(a.z),pitch(a.y)),roll(a.x)),vec);
+  
+}
 
 // Sphere
 // s: radius
@@ -30,13 +77,14 @@ float sdEllipsoid( float3 p, float3 r )
 // b: size of box in x/y/z
 float sdBox(float3 p, float3 b)
 {
-	float3 d = abs(p) - b;
+  float3 t = rotate(float3(0,3.14/2,0), p);
+	float3 d = abs(t) - b;
 	return min(max(d.x, max(d.y, d.z)), 0.0) +
 		length(max(d, 0.0));
 }
 
 // Torus
-float sdTorus( float3 p, float3 t )
+float sdTorus( float3 p, float3 t)
 {
   float2 q = float2(length(p.xz)-t.x,p.y);
   return length(q)-t.y;

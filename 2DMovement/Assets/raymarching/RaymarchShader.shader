@@ -61,37 +61,27 @@ Shader "Michael/RaymarchShader"
             }
 
             float getDistance(float3 position, Shape s){
+                float3 t = position-s.position;
+                t = rotate(s.rotation, t);
                 switch (s.shapeType){
                     case 0:
-                        return sdEllipsoid(position - s.position, s.scale);
+                        return sdEllipsoid(t, s.scale);
                     case 1:
-                        return sdBox(position - s.position, s.scale);
+                        return sdBox(t, s.scale);
                     case 2:
-                        return sdTorus(position - s.position, s.scale);
+                        return sdTorus(t, s.scale);
                     case 3:
-                        return sdVerticalCapsule(position - s.position, s.scale.x, s.scale.y);
+                        return sdRoundBox(t, s.scale.xyz, s.roundness);
                     case 4:
-                        return sdCone(position - s.position, s.scale.xy, s.scale.z);
+                        return sdCappedCylinder(t, s.scale.x, s.scale.y);
                     case 5:
-                        return sdRoundBox(position - s.position, s.scale.xyz, s.roundness);
+                        return sdOctahedron (t, s.scale.x);
                     case 6:
-                        return sdHexPrism(position - s.position, s.scale.xy);
-                    case 7: 
-                        return sdTriPrism(position - s.position, s.scale.xy);
-                    case 8:
-                        return sdCappedCylinder(position - s.position, s.scale.x, s.scale.y);
-                    case 9:
-                        return sdOctahedron (position - s.position, s.scale.x);
-                    case 10:
-                        return sdPyramid(position - s.position, s.scale.x);
-                    case 11:
-                        return sdWiggle(position, s.position, s.scale);
-                    case 12:
-                        return sdHollowBox(position - s.position, s.scale, s.roundness);
-                    case 13:
-                        return sdGround(position, s.position, s.scale);
+                        return sdPyramid(t, s.scale.x);
+                    case 7:
+                        return sdHollowBox(t, s.scale, s.roundness);
                     default:
-                        return sdEllipsoid(position - s.position, s.scale);
+                        return sdEllipsoid(t, s.scale);
                 }
                 
             }

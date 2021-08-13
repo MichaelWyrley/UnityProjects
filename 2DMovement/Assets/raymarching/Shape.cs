@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class Shape : MonoBehaviour
 {
-    public enum ShapeType {Ellipsoid, Cube, Torus, Capsule, Cone, RoundBox, HexagonalPrism, TriangularPrism, Cylinder, Octahedron, Pyramid, Wiggle, HollowBox, Ground};
+    public enum ShapeType {Ellipsoid, Cube, Torus, RoundBox, Cylinder, Octahedron, HollowBox};
     public enum Operation {None, Blend, Cut,Mask};
 
     public ShapeType shapeType;
     public Operation operation;
     public Color colour = Color.white;
-    public Texture2D texture;
     [Range(0.0f,1.0f)]
     public float blendStrength;
     [Range(0, 100)]
@@ -30,9 +29,9 @@ public class Shape : MonoBehaviour
         }
     }
 
-    public Quaternion Rotation {
+    public Vector3 Rotation {
         get {
-            return transform.rotation.normalized;
+            return transform.rotation.eulerAngles * -Mathf.Deg2Rad;
         }
     }
 }
