@@ -77,8 +77,7 @@ float sdEllipsoid( float3 p, float3 r )
 // b: size of box in x/y/z
 float sdBox(float3 p, float3 b)
 {
-  float3 t = rotate(float3(0,3.14/2,0), p);
-	float3 d = abs(t) - b;
+	float3 d = abs(p) - b;
 	return min(max(d.x, max(d.y, d.z)), 0.0) +
 		length(max(d, 0.0));
 }

@@ -47,7 +47,6 @@ MonoBehaviour:
   shapeType: 1
   operation: 3
   colour: {r: 1, g: 1, b: 1, a: 1}
-  texture: {fileID: 0}
   blendStrength: 0
   layer: 100
   roundness: 0
@@ -63,4 +62,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd56358bb62fd1540ae6d6c79792ac6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 6883838782550072778, guid: 8a4cb955dbce60e4dbec5df22252e8aa, type: 3}

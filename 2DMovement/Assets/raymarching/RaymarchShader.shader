@@ -22,13 +22,15 @@ Shader "Michael/RaymarchShader"
             sampler2D _MainTex;
             uniform float4x4 _CamFrustum, _CamToWorldMatrix;
             uniform float _maxDistance;
-            uniform float3 _lightDirection;
+            uniform float3 _lightDirection, _LightCol;
+            uniform float _LightIntensity, _ShadowIntensity, _ShadowPenumbra;
+            uniform float2 _ShadowDistance;
             uniform sampler2D _CameraDepthTexture;
 
             uniform StructuredBuffer<Shape> shapes;
             uniform int _noShapes;
 
-            #define MAX_STEPS 100
+            #define MAX_STEPS 169
             #define SURF_DIST 0.01
 
             struct appdata
@@ -122,6 +124,43 @@ Shader "Michael/RaymarchShader"
                 return normalize(normal);
             }
 
+            float hardShadow(float3 ro, float3 rd, float minTrav, float maxTrav) {
+                float trav = minTrav;
+                while(trav < maxTrav) {
+                    float h = distanceField(ro + rd * trav).distance;
+                    if(h < 0.001){ // inside object
+                        return 0.0;
+                    }
+                    trav += h;
+                }
+                return 1.0;
+            }
+            
+            float softShadow(float3 ro, float3 rd, float minTrav, float maxTrav, float k) {
+                float result = 1.0;
+                float trav = minTrav;
+                while(trav < maxTrav) {
+                    float h = distanceField(ro + rd * trav).distance;
+                    if(h < 0.001){ // inside object
+                        return 0.0;
+                    }
+                    result = min(result, k*h/trav);
+                    trav += h;
+                }
+                return result;
+            }
+
+            float3 Shading(float3 p, float3 n){
+                // Directional Light
+                float result = (_LightCol * dot(-_lightDirection, n) * 0.5 + 0.5) * _LightIntensity;
+                // Shadows
+                float shadow = softShadow(p, -_lightDirection, _ShadowDistance.x, _ShadowDistance.y, _ShadowPenumbra) * 0.5 + 0.5;
+                shadow = max(0.0, pow(shadow, _ShadowIntensity));
+                result *= shadow;
+
+                return result;
+            }
+
             fixed4 raymarching(float3 rayOrigin, float3 rayDirection, float depth) {
                 float distanceTraveled = 0; // distance traveled allong the ray direction
 
@@ -136,8 +175,8 @@ Shader "Michael/RaymarchShader"
                     if (distanceInfo.distance < SURF_DIST){ // we have hit something
                         // shading
                         float3 n = getNormal(position);
-                        float light = dot(-_lightDirection, n);
-                        return float4(distanceInfo.colour.xyz * light, distanceInfo.colour.w); // set colour
+                        float3 s = Shading(position,n);
+                        return float4(distanceInfo.colour.xyz * s, distanceInfo.colour.w); // set colour
                     }
                     distanceTraveled += distanceInfo.distance;
                 }

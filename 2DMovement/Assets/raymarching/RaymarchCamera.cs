@@ -30,10 +30,22 @@ public class RaymarchCamera : SceneViewFilter
         }
     }
     private Camera cam;
-
-    public Transform _directionalLight;
-
     public float _maxDistance;
+
+    [Header("Directional Light")]
+    public Transform _directionalLight;
+    public Color _LightCol;
+    [Range(0,1)]
+    public float _LightIntensity;
+
+    [Header("Shadow")]
+    [Range(0,1)]
+    public float _ShadowIntensity;
+    public Vector2 _ShadowDistance;
+    [Range(0,128)]
+    public float _ShadowPenumbra;
+
+    
     List<ComputeBuffer> buffersToDispose;
 
 
@@ -49,6 +61,12 @@ public class RaymarchCamera : SceneViewFilter
         raymarchMaterial.SetMatrix("_CamToWorldMatrix", _camera.cameraToWorldMatrix);
         raymarchMaterial.SetFloat("_maxDistance", _maxDistance);
         raymarchMaterial.SetVector("_lightDirection", _directionalLight ? _directionalLight.forward : Vector3.down);
+
+        raymarchMaterial.SetColor("_LightCol",_LightCol);
+        raymarchMaterial.SetFloat("_LightIntensity",_LightIntensity);
+        raymarchMaterial.SetFloat("_ShadowIntensity", _ShadowIntensity);
+        raymarchMaterial.SetVector("_ShadowDistance",_ShadowDistance);
+        raymarchMaterial.SetFloat("_ShadowPenumbra",_ShadowPenumbra);
 
         RenderTexture.active = destination;
         raymarchMaterial.SetTexture("_MainTex", source);
