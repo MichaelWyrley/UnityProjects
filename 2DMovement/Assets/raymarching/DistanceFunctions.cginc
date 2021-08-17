@@ -183,10 +183,24 @@ float sdPyramid( float3 p, float h)
   return sqrt( (d2+q.z*q.z)/m2 ) * sign(max(q.z,-p.y));
 }
 
+float pythag(float x, float y){
+  return sqrt(x*x+y*y);
+}
+
 // Wiggle
-float sdWiggle(float3 p, float3 d, float3 b)
+float sdWiggle(float3 p, float3 b, float r)
 {
-	return sdBox(p-d,b) -sin(p.x*6.5+d.x*3)*.08;
+	return sdBox(p,b) -sin(pythag(p.x,p.z)+_Time.y*2)*r;
+}
+// // float sdWiggle(float3 p, float3 b, float r)
+// {
+// 	return sdEllipsoid(p,b) -sin(pythag(p.x,p.z)+_Time.y*2)*r;
+// }
+
+// Water
+float sdWater(float3 p, float3 b, float r)
+{
+	return sdBox(p,b) -sin(p.x+p.z+_Time.y*2)*r ;
 }
 
 float sdHollowBox(float3 p, float3 d, float thickness){
@@ -194,29 +208,6 @@ float sdHollowBox(float3 p, float3 d, float thickness){
   return abs(box)-thickness;
 }
 
-// hash function
-float hash( float2 p ) {
-	float h = dot(p,float2(127.1,311.7));	
-    return frac(sin(h)*43758.5453123);
-}
-
-// perlianNoise
-float perlianNoise( float2 p ) {
-    float2 i = floor( p );
-    float2 f = frac( p );	
-	float2 u = f*f*(3.0-2.0*f);
-    return -1.0+2.0*lerp( lerp( hash( i + float2(0.0,0.0) ), 
-                     hash( i + float2(1.0,0.0) ), u.x),
-                lerp( hash( i + float2(0.0,1.0) ), 
-                     hash( i + float2(1.0,1.0) ), u.x), u.y);
-}
-
-// Ground
-float sdGround(float3 p, float3 d, float3 s){
-  float n = perlianNoise(d.xz);
-  s.y *= n*100;
-  return sdBox(p-d, s);
-}
 
 
 

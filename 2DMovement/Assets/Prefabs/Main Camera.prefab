@@ -118,5 +118,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  height: 2.16
-  distance: 9.77
+  height: 4.04
+  distance: 11.78

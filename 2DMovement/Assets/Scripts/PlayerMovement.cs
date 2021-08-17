@@ -40,4 +40,12 @@ public class PlayerMovement : MonoBehaviour
         controller.Move(velocity * Time.deltaTime * 1/2);
 
     }
+
+    void OnTriggerEnter(Collider other) {
+        if (other.tag == "Acid") {
+            Destroy(this.gameObject);
+        } else if (other.tag == "Spike") {
+            Destroy(this.gameObject);
+        }
+    }
 }

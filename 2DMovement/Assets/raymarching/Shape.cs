@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Shape : MonoBehaviour
 {
-    public enum ShapeType {Ellipsoid, Cube, Torus, RoundBox, Cylinder, Octahedron, HollowBox};
+    public enum ShapeType {Ellipsoid, Cube, Torus, RoundBox, Cylinder, Octahedron, Pyramid, HollowBox, Wiggly, Water};
     public enum Operation {None, Blend, Cut,Mask};
 
     public ShapeType shapeType;

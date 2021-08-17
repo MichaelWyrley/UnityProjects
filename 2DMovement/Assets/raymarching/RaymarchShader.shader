@@ -82,6 +82,10 @@ Shader "Michael/RaymarchShader"
                         return sdPyramid(t, s.scale.x);
                     case 7:
                         return sdHollowBox(t, s.scale, s.roundness);
+                    case 8:
+                        return sdWiggle(t,s.scale, s.roundness);
+                    case 9:
+                        return sdWater(t,s.scale,s.roundness);
                     default:
                         return sdEllipsoid(t, s.scale);
                 }

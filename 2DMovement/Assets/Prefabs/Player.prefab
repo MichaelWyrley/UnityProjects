@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &6883838782550072778
 Transform:
   m_ObjectHideFlags: 0
@@ -49,7 +49,7 @@ CharacterController:
   m_Height: 2
   m_Radius: 0.5
   m_SlopeLimit: 45
-  m_StepOffset: 0.3
+  m_StepOffset: 0
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
@@ -101,7 +101,7 @@ Transform:
   m_GameObject: {fileID: 6883838782620331883}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.48, y: 1, z: 0.08}
   m_Children: []
   m_Father: {fileID: 6883838782550072778}
   m_RootOrder: 2
@@ -118,11 +118,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e07e60f0b1a2b1459015e1713dbfb2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shapeType: 11
+  shapeType: 0
   operation: 0
   colour: {r: 1, g: 1, b: 1, a: 1}
   blendStrength: 0
-  layer: 25
+  layer: 0
   roundness: 0
 --- !u!1 &6883838783429771104
 GameObject:
@@ -171,7 +171,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &6883838784338845334
 Transform:
   m_ObjectHideFlags: 0
@@ -181,7 +181,7 @@ Transform:
   m_GameObject: {fileID: 6883838784338845333}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.01, y: 1, z: 18.34}
   m_Children: []
   m_Father: {fileID: 6883838782550072778}
   m_RootOrder: 1

@@ -18,7 +18,7 @@ public class CutMovement : MonoBehaviour
         tempPos = transform.position;
         tempPos.x = player.position.x;
         tempPos.y = player.position.y;
-        tempPos.z = player.position.z;
+        tempPos.z = player.position.z-0.1f;
 
         transform.position = tempPos;
     }
