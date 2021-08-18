@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 1137264574780601113}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 8.79, y: 3.48, z: 0}
-  m_LocalScale: {x: 0.15, y: 1.51, z: 1}
+  m_LocalScale: {x: 0.26, y: 1.51, z: 29.34}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -48,8 +48,8 @@ MonoBehaviour:
   shapeType: 1
   operation: 0
   colour: {r: 0.3490566, g: 0.3490566, b: 0.3490566, a: 1}
-  blendStrength: 0.195
-  layer: 2
+  blendStrength: 0.6
+  layer: 35
   roundness: 0
 --- !u!114 &1137264574780601117
 MonoBehaviour:

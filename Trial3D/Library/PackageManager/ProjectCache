@@ -5,16 +5,16 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637631666587924908
-    m_Hash: 2906239925
+      ticks: 637642874340216347
+    m_Hash: 4213856682
   m_LockFileStatus:
     m_FilePath: C:/Users/mikew/GitRepos/UnityProjects/Trial3D/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637631666638627563
-    m_Hash: 1173148608
+      ticks: 637642874340216347
+    m_Hash: 1242768795
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
 m_PackageAssets:
@@ -64,6 +64,8 @@ m_PackageAssets:
         - 1.5.7
         - 1.6.0
         - 1.7.1
+        - 1.8.0
+        - 1.9.0
         - 2.0.0-preview.6
         - 2.0.0-preview.8
         - 2.0.0-preview.15
@@ -78,6 +80,8 @@ m_PackageAssets:
         - 1.5.7
         - 1.6.0
         - 1.7.1
+        - 1.8.0
+        - 1.9.0
         - 2.0.0-preview.6
         - 2.0.0-preview.8
         - 2.0.0-preview.15
@@ -557,6 +561,7 @@ m_PackageAssets:
         - 1.5.4
         - 1.5.5
         - 1.5.6
+        - 1.6.0-preview.1
         - 2.0.0
         - 2.0.1-preview.1
         - 2.0.1
@@ -578,6 +583,7 @@ m_PackageAssets:
         - 2.1.4
         - 2.1.5
         - 2.1.6
+        - 2.2.0-preview.1
         - 3.0.0-preview.1
         - 3.0.0-preview.3
         - 3.0.0-preview.4
@@ -595,8 +601,10 @@ m_PackageAssets:
         - 3.0.4
         - 3.0.5
         - 3.0.6
+        - 3.2.0-pre.1
         compatible:
         - 3.0.6
+        - 3.2.0-pre.1
         verified: 3.0.6
       dependencies:
       - name: com.unity.ugui

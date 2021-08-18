@@ -37,13 +37,14 @@
   </PropertyGroup>
   <ItemGroup>
      <Compile Include="Assets\raymarching\SceneViewFilter.cs" />
-     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
+     <Compile Include="Assets\Scripts\Player2D\PlayerMove2D.cs" />
      <Compile Include="Assets\Scripts\DoorScript.cs" />
-     <Compile Include="Assets\Scripts\CutMovement.cs" />
+     <Compile Include="Assets\Scripts\Player2D\CutMovement.cs" />
      <Compile Include="Assets\Scripts\CameraMovement.cs" />
      <Compile Include="Assets\Scripts\Coin.cs" />
      <Compile Include="Assets\raymarching\RaymarchCamera.cs" />
      <Compile Include="Assets\raymarching\Shape.cs" />
+     <Compile Include="Assets\Scripts\Player3D\PlayerMove3D.cs" />
      <None Include="Assets\raymarching\RaymarchShader.shader" />
      <None Include="Assets\raymarching\DistanceFunctions.cginc" />
     <Reference Include="UnityEngine">

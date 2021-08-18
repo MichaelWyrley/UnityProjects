@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMove2D : MonoBehaviour
 {
     public float speedx = 12f;
     public float speedz = 6f;
@@ -11,6 +11,12 @@ public class PlayerMovement : MonoBehaviour
     public Transform groundCheck;
     public float groundDistance = 0.4f;
     public LayerMask groundMask;
+
+    public Vector3 Position {
+        get {
+            return transform.position;
+        }
+    }
 
     private bool isGrounded;
 
@@ -32,7 +38,7 @@ public class PlayerMovement : MonoBehaviour
         Vector3 move = transform.right * x * speedx + transform.forward * z * speedz;
         controller.Move(move * Time.deltaTime);
 
-        if(Input.GetButtonDown("Jump") && isGrounded){
+        if((Input.GetAxisRaw("Jump") > 0) && isGrounded){
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
         }
 
@@ -48,4 +54,10 @@ public class PlayerMovement : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
+
+    public void toggleEnable(bool toggle){
+        gameObject.SetActive(toggle);
+    }
+
+
 }

@@ -9,8 +9,6 @@ public class CutMovement : MonoBehaviour
     private Transform player;
     private Vector3 tempPos;
 
-    
-
     void LateUpdate() {
         if(!player)
             return;
@@ -21,6 +19,10 @@ public class CutMovement : MonoBehaviour
         tempPos.z = player.position.z-0.1f;
 
         transform.position = tempPos;
+    }
+
+    public void toggleEnable(bool toggle){
+        gameObject.SetActive(toggle);
     }
 
 }

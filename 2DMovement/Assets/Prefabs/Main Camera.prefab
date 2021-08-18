@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 578464650363572490}
   - component: {fileID: 578464650363572489}
   - component: {fileID: 578464650363760374}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -58,14 +58,14 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 1000
+  far clip plane: 29
   field of view: 60
   orthographic: 0
-  orthographic size: 5
+  orthographic size: 5.22
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 471
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -117,6 +117,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8c2abb9467316e4290577d544b18838, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  height: 4.04
-  distance: 11.78
+  height2D: 4.2
+  distance2D: 12.81
+  height3D: 0.3
+  distance3D: 18.04

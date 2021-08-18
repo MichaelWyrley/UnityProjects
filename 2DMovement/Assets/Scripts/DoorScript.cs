@@ -9,9 +9,9 @@ public class DoorScript : MonoBehaviour
     private int noCoins;
     private int destroyed = 0;
 
-    public void coinCollect(){
+    public void coinCollect(Coin c){
         destroyed ++;
-        print(destroyed);
+        GetComponent<Shape>().colour += c.getColour() / noCoins;
     }
     // Start is called before the first frame update
     void Start()
@@ -21,7 +21,7 @@ public class DoorScript : MonoBehaviour
     }
 
     public void LastCoin() {
-        if(noCoins == destroyed){
+        if(noCoins == destroyed) {
             GetComponent<Collider>().enabled = false;
             // change to blend
             GetComponent<Shape>().operation = Shape.Operation.Blend;

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6883838782550072777}
   - component: {fileID: 6883838782550072776}
   m_Layer: 7
-  m_Name: Player
+  m_Name: Player2D
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -67,14 +67,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speedx: 12
   speedz: 6
-  jumpHeight: 10
+  jumpHeight: 6
   controller: {fileID: 6883838782550072777}
   groundCheck: {fileID: 6883838783429771105}
   groundDistance: 0.4
   groundMask:
     serializedVersion: 2
     m_Bits: 64
-  gravity: -9.81
+  gravity: -25
 --- !u!1 &6883838782620331883
 GameObject:
   m_ObjectHideFlags: 0
@@ -120,7 +120,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shapeType: 0
   operation: 0
-  colour: {r: 1, g: 1, b: 1, a: 1}
+  colour: {r: 1, g: 0, b: 0, a: 1}
   blendStrength: 0
   layer: 0
   roundness: 0

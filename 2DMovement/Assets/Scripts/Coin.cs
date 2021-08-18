@@ -34,9 +34,13 @@ public class Coin : MonoBehaviour
 
     void OnTriggerEnter(Collider other) {
         if (other.tag == "Player") {
-            door.coinCollect();
+            door.coinCollect(this);
             Destroy(this.gameObject);
             door.LastCoin();
         }
+    }
+
+    public Color getColour() {
+        return GetComponent<Shape>().colour;
     }
 }
