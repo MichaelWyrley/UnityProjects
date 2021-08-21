@@ -8,6 +8,7 @@ TagManager:
   - Ground
   - Acid
   - Spike
+  - Movable
   layers:
   - Default
   - TransparentFX
@@ -18,7 +19,7 @@ TagManager:
   - Ground
   - Player
   - Coin
-  - 
+  - Wall
   - 
   - 
   - 

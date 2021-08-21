@@ -59,5 +59,15 @@ public class PlayerMove2D : MonoBehaviour
         gameObject.SetActive(toggle);
     }
 
+    void OnControllerColliderHit(ControllerColliderHit hit){
+        if (hit.collider.CompareTag("Movable")){
+            Rigidbody body = hit.collider.attachedRigidbody;
+            if (body == null) 
+                return;
+            Vector3 pushDir = new Vector3(hit.moveDirection.x, 0, hit.moveDirection.z);
+            body.velocity = pushDir * speedx;
+        }
+    }
+
 
 }

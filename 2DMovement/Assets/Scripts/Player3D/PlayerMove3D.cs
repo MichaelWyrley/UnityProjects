@@ -10,15 +10,20 @@ public class PlayerMove3D : MonoBehaviour
     [SerializeField]
     private float speedy = 6f;
     private CharacterController controller;
+    private PlayerMove2D player2D;
 
     public Vector3 Position {
         get {
             return transform.position;
         }
     }
-
-    void Start() {
+    void Awake() {
         controller = gameObject.GetComponent(typeof(CharacterController)) as CharacterController;
+        player2D = FindObjectOfType<PlayerMove2D>();
+    }
+
+    void OnEnable() {
+        transform.position = player2D.transform.position;
     }
 
     // Update is called once per frame
