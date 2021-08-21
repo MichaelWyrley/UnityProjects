@@ -40,12 +40,12 @@
      <Compile Include="Assets\Scripts\Player2D\PlayerMove2D.cs" />
      <Compile Include="Assets\Scripts\Environment\DoorScript.cs" />
      <Compile Include="Assets\Scripts\Player2D\CutMovement.cs" />
+     <Compile Include="Assets\Scripts\Environment\Movement.cs" />
      <Compile Include="Assets\Scripts\CameraMovement.cs" />
      <Compile Include="Assets\Scripts\Player3D\PlayerMove3D.cs" />
      <Compile Include="Assets\Scripts\Environment\Coin.cs" />
      <Compile Include="Assets\raymarching\RaymarchCamera.cs" />
      <Compile Include="Assets\raymarching\Shape.cs" />
-     <Compile Include="Assets\Scripts\Environment\Movement.cs" />
      <None Include="Assets\raymarching\RaymarchShader.shader" />
      <None Include="Assets\raymarching\DistanceFunctions.cginc" />
     <Reference Include="UnityEngine">
